@@ -3,22 +3,25 @@ public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         boolean input = false;
-        String[] Concessionaria = {""};
-        int count = Concessionaria.length - 1;
+        String[] Concessionario = {""};
         do {
 
-            System.out.println("1- aggiunta di una nuova auto");
-            System.out.println("2- visualizzazione di tutte le auto");
-            System.out.println("3- ricerca di un'auto tramite marca e modello");
-            System.out.println("4- cancellazione di un'auto");
-            System.out.println("5- modifica dei dati di un'auto");
-            System.out.println("6- visualizzazione delle auto in ordine crescente");
-            System.out.println("7- visualizzare tutti i modelli che diesel");
-            System.out.println("0- esci dalla concessionaria");
+            System.out.println("1- Aggiunta di una nuova auto");
+            System.out.println("2- Visualizzazione di tutte le auto");
+            System.out.println("3- Ricerca di un'auto tramite marca e modello");
+            System.out.println("4- Rimozione di un'auto");
+            System.out.println("5- Modifica dei dati di un'auto");
+            System.out.println("6- Visualizzazione delle auto in ordine crescente");
+            System.out.println("7- Visualizzare tutti i modelli che utilizzano diesel");
+            System.out.println("0- Esci dal concessionario");
 
             int scelta = in.nextInt();
+
             switch (scelta) {
                 case 1:
+                    System.out.println("Aggiungi un veicolo: ");
+                    String veicolo = in.nextLine();
+                    Functions.AggiungiVeicolo(Concessionario, veicolo);
                     break;
                 case 2:
                     break;
@@ -33,10 +36,9 @@ public class Main {
                 case 7:
                     break;
                 case 0:
-                    input=true;
+                    input = true;
                     break;
-
             }
-        }while (!input);
+        }while(!input);
     }
 }
