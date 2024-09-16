@@ -3,7 +3,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         boolean input = false;
-        String[] Concessionario = {""};
+        String[] Marca = {""};
+        String[] Modello = {""};
+        String[] Prezzo = {""};
         do {
 
             System.out.println("1- Aggiunta di una nuova auto");
@@ -20,11 +22,16 @@ public class Main {
             switch (scelta) {
                 case 1:
                     System.out.println("Aggiungi un veicolo: ");
-                    String veicolo = in.next();
-                    Functions.AggiungiVeicolo(Concessionario, veicolo);
+                    System.out.println("Marca: ");
+                    String marca = in.next();
+                    System.out.println("Modello: ");
+                    String modello = in.next();
+                    System.out.println("Prezzo: ");
+                    String prezzo = in.next();
+                    Functions.AggiungiVeicolo(Marca,Modello,Prezzo,marca,modello,prezzo);
                     break;
                 case 2:
-                    Functions.VisualizzaConcessionario(Concessionario);
+                    Functions.VisualizzaConcessionario(Marca,Modello,Prezzo);
                     break;
                 case 3:
                     break;
