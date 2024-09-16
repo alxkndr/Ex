@@ -20,10 +20,11 @@ public class Main {
             switch (scelta) {
                 case 1:
                     System.out.println("Aggiungi un veicolo: ");
-                    String veicolo = in.nextLine();
+                    String veicolo = in.next();
                     Functions.AggiungiVeicolo(Concessionario, veicolo);
                     break;
                 case 2:
+                    Functions.VisualizzaConcessionario(Concessionario);
                     break;
                 case 3:
                     break;

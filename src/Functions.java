@@ -5,4 +5,9 @@ public class Functions {
         }
         return Concessionario;
     }
+    public static void VisualizzaConcessionario(String[]Concessionario){
+        for (int i = 0; i < Concessionario.length; i++){
+            System.out.println(Concessionario[i]+ " ");
+        }
+    }
 }
