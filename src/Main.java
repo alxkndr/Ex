@@ -3,9 +3,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         boolean input = false;
-        String[] Marca = {""};
-        String[] Modello = {""};
-        String[] Prezzo = {""};
+        String[] arrayMarca = new String[10];
+        String[] arrayModello = new String[10];
+        String[] arrayPrezzo = new String[10];
+        int count = 0;
         do {
 
             System.out.println("1- Aggiunta di una nuova auto");
@@ -28,16 +29,40 @@ public class Main {
                     String modello = in.next();
                     System.out.println("Prezzo: ");
                     String prezzo = in.next();
-                    Functions.AggiungiVeicolo(Marca,Modello,Prezzo,marca,modello,prezzo);
+                    Functions.AggiungiVeicolo(arrayMarca,arrayModello,arrayPrezzo,marca,modello,prezzo, count);
+                    count++;
                     break;
                 case 2:
-                    Functions.VisualizzaConcessionario(Marca,Modello,Prezzo);
+                    Functions.VisualizzaConcessionario(arrayMarca,arrayModello,arrayPrezzo);
                     break;
                 case 3:
+                    System.out.println("Ricerca un auto, inserisci la marca: ");
+                    marca = in.next();
+                    System.out.println("Ora inserisci il modello: ");
+                    modello = in.next();
+                    int posizione = Functions.RicercaAuto(arrayMarca, arrayModello, marca, modello);
+                    if (posizione == -1){
+                        System.out.println(marca + " " + modello + " non è stata trovata");
+                    } else {
+                        System.out.println(marca + " " + modello + " è presente e si trova in posizione:" + " " + posizione);
+                    }
                     break;
                 case 4:
                     break;
                 case 5:
+                    System.out.println("Modifica dei dati di un auto, inserisci la marca da sostituire: ");
+                    marca = in.next();
+                    System.out.println("Inserisci il modello da sostituire: ");
+                    modello = in.next();
+                    System.out.println("Inserisci il prezzo da sostituire: ");
+                    prezzo = in.next();
+                    System.out.println("Ora puoi modificare i dati della marca: ");
+                    String newmarca = in.next();
+                    System.out.println("Inserisci il modello da sostituire: ");
+                    String newmodello = in.next();
+                    System.out.println("Inserisci il prezzo da sostituire: ");
+                    String newprezzo = in.next();
+                    Functions.ModificaDati(arrayMarca, arrayModello, arrayPrezzo,marca,modello,prezzo,newprezzo,newmarca,newmodello);
                     break;
                 case 6:
                     break;
@@ -45,6 +70,7 @@ public class Main {
                     break;
                 case 0:
                     input = true;
+                    System.out.println("Stai uscendo dal concessionario...");
                     break;
             }
         }while(!input);

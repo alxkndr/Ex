@@ -1,24 +1,42 @@
 public class Functions {
-    public static void AggiungiVeicolo(String[]Marca, String[]Modello, String[]Prezzo, String marca, String modello, String prezzo){
-        for (int i = 0; i < Marca.length; i++){
-            Marca[i] = marca;
-        }
-        for (int i = 0; i < Modello.length; i++){
-            Modello[i] = modello;
-        }
-        for (int i = 0; i < Prezzo.length; i++){
-            Prezzo[i] = prezzo;
+    public static void AggiungiVeicolo(String[]Marca, String[]Modello, String[]Prezzo, String marca, String modello, String prezzo, int count){
+            Marca[count] = marca;
+            Modello[count] = modello;
+            Prezzo[count] = prezzo;
+    }
+    public static void VisualizzaConcessionario(String[]arrayMarca, String[]arrayModello, String[]arrayPrezzo){
+        for (int i = 0; i < arrayMarca.length; i++){
+            if (arrayMarca[i] == null){
+                break;
+            }
+            else {
+                System.out.println(arrayMarca[i]+ " " + arrayModello[i] + " " + arrayPrezzo[i]);
+            }
         }
     }
-    public static void VisualizzaConcessionario(String[]Marca, String[]Modello, String[]Prezzo){
-        for (int i = 0; i < Marca.length; i++){
-            System.out.println(Marca[i]+ " ");
+    public static int RicercaAuto(String[]arrayMarca,String[]arrayModello, String marca, String modello){
+        int posizione = -1;
+        for (int i = 0; i < arrayMarca.length; i++){
+            if (marca.equalsIgnoreCase(arrayMarca[i]) && modello.equalsIgnoreCase(arrayModello[i])){
+                posizione = i;
+            }
         }
-        for (int i = 0; i < Modello.length; i++){
-            System.out.println(Modello[i]+ " ");
-        }
-        for (int i = 0; i < Prezzo.length; i++){
-            System.out.println(Prezzo[i]+ " ");
+        return posizione;
+    }
+    public static void EliminaAuto(String[]arrayMarca,String[]arrayModello, String[]arrayPrezzo, String marca, String modello, String prezzo){
+
+    }
+    public static void ModificaDati(String[]arrayMarca,String[]arrayModello, String[]arrayPrezzo, String marca, String modello, String prezzo, String newprezzo, String newmodello, String newmarca){
+        for (int i = 0; i < arrayMarca.length; i++){
+            if(marca.equalsIgnoreCase(arrayMarca[i])){
+                arrayMarca[i]=newmarca;
+            }
+            if(modello.equalsIgnoreCase(arrayModello[i])){
+                arrayModello[i]=newmodello;
+            }
+            if(prezzo.equalsIgnoreCase(arrayPrezzo[i])){
+                arrayPrezzo[i]=newprezzo;
+            }
         }
     }
 }
