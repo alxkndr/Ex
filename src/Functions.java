@@ -24,6 +24,16 @@ public class Functions {
         return posizione;
     }
     public static void EliminaAuto(String[]arrayMarca,String[]arrayModello, String[]arrayPrezzo, String marca, String modello, String prezzo){
+        Functions.RicercaAuto(arrayMarca,arrayModello,marca,modello);
+        if (Functions.RicercaAuto(arrayMarca,arrayModello,marca,modello)==-1){
+            System.out.println("Non è stata trovata nessuna auto con questi dati");
+        } else {
+            for (int i = Functions.RicercaAuto(arrayMarca,arrayModello,marca,modello); i < arrayMarca.length; i++){
+                arrayMarca[i] = arrayMarca[i+1];
+                arrayMarca[i] = arrayMarca[i+1];
+                arrayMarca[i] = arrayMarca[i+1];
+            }
+        }
 
     }
     public static void ModificaDati(String[]arrayMarca,String[]arrayModello, String[]arrayPrezzo, String marca, String modello, String prezzo, String newprezzo, String newmodello, String newmarca){

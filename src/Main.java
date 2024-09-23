@@ -44,10 +44,14 @@ public class Main {
                     if (posizione == -1){
                         System.out.println(marca + " " + modello + " non è stata trovata");
                     } else {
-                        System.out.println(marca + " " + modello + " è presente e si trova in posizione:" + " " + posizione);
+                        System.out.println(marca + " " + modello + " " + arrayPrezzo[posizione] + " è presente e si trova in posizione:" + " " + posizione);
                     }
                     break;
                 case 4:
+                    System.out.println("Ricerca un auto, inserisci la marca: ");
+                    marca = in.next();
+                    System.out.println("Ora inserisci il modello: ");
+                    modello = in.next();
                     break;
                 case 5:
                     System.out.println("Modifica dei dati di un auto, inserisci la marca da sostituire: ");
