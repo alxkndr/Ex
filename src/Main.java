@@ -36,6 +36,10 @@ public class Main {
                     Functions.VisualizzaConcessionario(arrayMarca,arrayModello,arrayPrezzo);
                     break;
                 case 3:
+                    if (count==0){
+                        System.out.println("Non ci sono auto nel concessionario, inseriscine una");
+                        break;
+                    }
                     System.out.println("Ricerca un auto, inserisci la marca: ");
                     marca = in.next();
                     System.out.println("Ora inserisci il modello: ");
@@ -48,10 +52,29 @@ public class Main {
                     }
                     break;
                 case 4:
-                    System.out.println("Ricerca un auto, inserisci la marca: ");
+                    if (count==0){
+                        System.out.println("Non ci sono auto nel concessionario, inseriscine una");
+                        break;
+                    }
+
+                    int RicercaDaEliminare=-1;
+                    System.out.println("Inserisci la marca dell'auto da mandare al bar: ");
                     marca = in.next();
                     System.out.println("Ora inserisci il modello: ");
                     modello = in.next();
+                    System.out.println("Ora inserisci il prezzo: ");
+                    prezzo = in.next();
+
+                    for (int i = 0; i < count; i++){
+                        if (arrayMarca[i].equalsIgnoreCase(marca) && arrayModello[i].equalsIgnoreCase(modello) && arrayPrezzo[i].equalsIgnoreCase(prezzo)){
+                            RicercaDaEliminare=i;
+                            break;
+                        }
+                    }
+                    if (RicercaDaEliminare==-1){
+                        System.out.println("Non è presente un'auto con questi dati");
+                    }
+                    count = Functions.EliminaAuto(arrayMarca,arrayModello,arrayPrezzo,RicercaDaEliminare,count);
                     break;
                 case 5:
                     System.out.println("Modifica dei dati di un auto, inserisci la marca da sostituire: ");

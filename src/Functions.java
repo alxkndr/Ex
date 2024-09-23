@@ -23,19 +23,15 @@ public class Functions {
         }
         return posizione;
     }
-    public static void EliminaAuto(String[]arrayMarca,String[]arrayModello, String[]arrayPrezzo, String marca, String modello, String prezzo){
-        Functions.RicercaAuto(arrayMarca,arrayModello,marca,modello);
-        if (Functions.RicercaAuto(arrayMarca,arrayModello,marca,modello)==-1){
-            System.out.println("Non è stata trovata nessuna auto con questi dati");
-        } else {
-            for (int i = Functions.RicercaAuto(arrayMarca,arrayModello,marca,modello); i < arrayMarca.length; i++){
+    public static int EliminaAuto(String[]arrayMarca,String[]arrayModello, String[]arrayPrezzo, int ricercadaeliminare, int count){
+            for (int i = ricercadaeliminare; i < count; i++){
                 arrayMarca[i] = arrayMarca[i+1];
-                arrayMarca[i] = arrayMarca[i+1];
-                arrayMarca[i] = arrayMarca[i+1];
+                arrayModello[i] = arrayModello[i+1];
+                arrayPrezzo[i] = arrayPrezzo[i+1];
             }
+            count = count-1;
+            return count;
         }
-
-    }
     public static void ModificaDati(String[]arrayMarca,String[]arrayModello, String[]arrayPrezzo, String marca, String modello, String prezzo, String newprezzo, String newmodello, String newmarca){
         for (int i = 0; i < arrayMarca.length; i++){
             if(marca.equalsIgnoreCase(arrayMarca[i])){
